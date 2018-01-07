@@ -12,9 +12,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./data/center.jpg "Model Visualization"
-[image2]: ./data/flip.jpg "Model Visualization"
-[image3]: ./data/crop.jpg "Model Visualization"
+[image1]: ./data/center.PNG "Model Visualization"
+[image2]: ./data/flip.PNG "Model Visualization"
+[image3]: ./data/crop.PNG "Model Visualization"
 [gif1]: ./data/video.gif "Video"
 
 ---
