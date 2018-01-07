@@ -76,10 +76,9 @@ To combat the overfitting, I modified the model to include a dropout layer with 
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. This might have been due to the model underfitting the data. I then increased the number of epochs to 10 to see the behaviour of the error. The model took longer to train and it became apparent that the validation error did not improve further after approximately 7 epochs. At this point, the simulator was still not able to get around the first turn.
 
-[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
-
 I thus decided to increase my training data to include more frames with only smooth turn data. I augmented the resulting training data with correction data where I captured frames where I would steer back to the center of the road from the edge of the road. This data trains the model to react to situations that could result in the car wearing off the track.  
 
+![Alt Text](https://github.com/ShujaKhalid/Deep-Learning-BehaviourCloning/tree/master/data/video.gif)
 [video2]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
