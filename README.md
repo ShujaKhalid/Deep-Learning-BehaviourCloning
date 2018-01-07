@@ -12,13 +12,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./data/center.jpg "Model Visualization"
+[image2]: ./data/flip.jpg "Model Visualization"
+[image3]: ./data/crop.jpg "Model Visualization"
 [gif1]: ./data/video.gif "Video"
 
 ---
@@ -104,7 +100,7 @@ Here is a visualization of the architecture implemented using Keras:
 | RELU					|		Rectified Linear Unit serves as the activation function andd adds non-linearity to the model										|
 | Flatten | Convert the 2D output thus far into a 1D array |
 | Fully connected		| 1st of 3 FC layers        									|
-| RELU					|	Rectified Linear Unit serves as the activaation function and adds non-linearity to the model											|
+| RELU					|	Rectified Linear Unit serves as the activation function and adds non-linearity to the model											|
 | Fully connected		| 2nd of 3 FC layers        									|
 | RELU					|		Rectified Linear Unit serves as the activation function and adds non-linearity to the model										|
 | Fully connected		| 3rd of 3 FC layers that produces an estimate for the steering angle	|
@@ -114,14 +110,15 @@ Here is a visualization of the architecture implemented using Keras:
 
 To capture good driving behavior, I first recorded 5 laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![alt text][image1]
 
 To augment the data sat, I also flipped images and angles thinking that this would balance the left biased data. Since most of the turns were to the left. For example, here is an image that has then been flipped:
 
-![alt text][image6]
+![alt text][image2]
 
 Here is an example of cropped data. Only the portion of the image that was deemded to be useful for the training process was used. 
-![alt text][image7]
+
+![alt text][image3]
 
 After the collection process, I had 15,973 number of data points after the data acquisition process. The data augmentation steps defined above helped increase the total no. of data points to 63,892. I then preprocessed this data by normalizing it.
 
