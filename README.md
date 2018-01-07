@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
-[video1]: ./video.mp4 "Video"
+[video1]: ./data/video.mp4 "Video"
 
 ---
 ### Files Submitted & Code Quality
@@ -68,8 +68,6 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
-
 My first step was to use a convolution neural network model similar to the one defined in the NVIDIA paper. I thought this model might be appropriate because it has been shown to work with success for the same application on the paper. 
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I chose an 80-20 split. I found that my first model had a low mean squared error on the training set but an increasingly high mean squared error on the validation set. This implied that the model was overfitting. 
@@ -106,8 +104,7 @@ Here is a visualization of the architecture implemented using Keras:
 | RELU					|		Rectified Linear Unit serves as the activation function andd adds non-linearity to the model										|
 | Convolution      	| 5x5 kernel with a 2x2 stride 	|
 | RELU					|		Rectified Linear Unit serves as the activation function andd adds non-linearity to the model										|
-
-| Flatten | Convert the 2D output thus far into a 1D array
+| Flatten | Convert the 2D output thus far into a 1D array |
 | Fully connected		| 1st of 3 FC layers        									|
 | RELU					|	Rectified Linear Unit serves as the activaation function and adds non-linearity to the model											|
 | Fully connected		| 2nd of 3 FC layers        									|
