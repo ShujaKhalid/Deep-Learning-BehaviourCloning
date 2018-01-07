@@ -12,14 +12,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
-[video1]: ./video.mp4 "Video"
+[image1]: ./data/center.PNG "Model Visualization"
+[image2]: ./data/flip.PNG "Model Visualization"
+[image3]: ./data/crop.PNG "Model Visualization"
+[gif1]: ./data/video.gif "Video"
 
 ---
 ### Files Submitted & Code Quality
@@ -68,8 +64,6 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
-
 My first step was to use a convolution neural network model similar to the one defined in the NVIDIA paper. I thought this model might be appropriate because it has been shown to work with success for the same application on the paper. 
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I chose an 80-20 split. I found that my first model had a low mean squared error on the training set but an increasingly high mean squared error on the validation set. This implied that the model was overfitting. 
@@ -78,11 +72,9 @@ To combat the overfitting, I modified the model to include a dropout layer with 
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. This might have been due to the model underfitting the data. I then increased the number of epochs to 10 to see the behaviour of the error. The model took longer to train and it became apparent that the validation error did not improve further after approximately 7 epochs. At this point, the simulator was still not able to get around the first turn.
 
-[video1]
-
 I thus decided to increase my training data to include more frames with only smooth turn data. I augmented the resulting training data with correction data where I captured frames where I would steer back to the center of the road from the edge of the road. This data trains the model to react to situations that could result in the car wearing off the track.  
 
-[video2]
+![Alt Text][gif1]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
@@ -106,10 +98,9 @@ Here is a visualization of the architecture implemented using Keras:
 | RELU					|		Rectified Linear Unit serves as the activation function andd adds non-linearity to the model										|
 | Convolution      	| 5x5 kernel with a 2x2 stride 	|
 | RELU					|		Rectified Linear Unit serves as the activation function andd adds non-linearity to the model										|
-
-| Flatten | Convert the 2D output thus far into a 1D array
+| Flatten | Convert the 2D output thus far into a 1D array |
 | Fully connected		| 1st of 3 FC layers        									|
-| RELU					|	Rectified Linear Unit serves as the activaation function and adds non-linearity to the model											|
+| RELU					|	Rectified Linear Unit serves as the activation function and adds non-linearity to the model											|
 | Fully connected		| 2nd of 3 FC layers        									|
 | RELU					|		Rectified Linear Unit serves as the activation function and adds non-linearity to the model										|
 | Fully connected		| 3rd of 3 FC layers that produces an estimate for the steering angle	|
@@ -119,14 +110,15 @@ Here is a visualization of the architecture implemented using Keras:
 
 To capture good driving behavior, I first recorded 5 laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![alt text][image1]
 
 To augment the data sat, I also flipped images and angles thinking that this would balance the left biased data. Since most of the turns were to the left. For example, here is an image that has then been flipped:
 
-![alt text][image6]
+![alt text][image2]
 
 Here is an example of cropped data. Only the portion of the image that was deemded to be useful for the training process was used. 
-![alt text][image7]
+
+![alt text][image3]
 
 After the collection process, I had 15,973 number of data points after the data acquisition process. The data augmentation steps defined above helped increase the total no. of data points to 63,892. I then preprocessed this data by normalizing it.
 
